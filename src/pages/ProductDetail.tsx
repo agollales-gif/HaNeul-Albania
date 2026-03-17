@@ -81,15 +81,17 @@ export default function ProductDetail() {
     <div className="relative bg-[#fdfaf5] text-[#1a2b4b] min-h-screen pt-20 md:pt-40 pb-20 md:pb-40">
       
       {/* Breadcrumb Navigation */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12">
-        <nav className="flex items-center gap-2 md:gap-4 text-xs md:text-sm opacity-60">
-          <Link to="/" className="hover:text-red-600 transition-colors">Faqja Kryesore</Link>
-          <span>/</span>
-          <Link to="/products" className="hover:text-red-600 transition-colors">Produktet</Link>
-          <span>/</span>
-          <span className="text-red-600">{product.name}</span>
-        </nav>
-      </div>
+      {!['shrimp-crackers', 'shin-toomba', 'shin-ramyun'].includes(product.id) && (
+        <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12">
+          <nav className="flex items-center gap-2 md:gap-4 text-xs md:text-sm opacity-60">
+            <Link to="/" className="hover:text-red-600 transition-colors">Faqja Kryesore</Link>
+            <span>/</span>
+            <Link to="/products" className="hover:text-red-600 transition-colors">Produktet</Link>
+            <span>/</span>
+            <span className="text-red-600">{product.name}</span>
+          </nav>
+        </div>
+      )}
 
       {/* Product Detail Section */}
       <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -126,24 +128,45 @@ export default function ProductDetail() {
               {product.desc}
             </p>
 
-            <div className="pt-4 md:pt-8">
-              <ProductSpecs tech={product.tech} />
-            </div>
+            {!['shrimp-crackers', 'shin-toomba', 'shin-ramyun'].includes(product.id) && (
+              <>
+                <div className="pt-4 md:pt-8">
+                  <ProductSpecs tech={product.tech} onOrderClick={() => setIsOrderFormOpen(true)} />
+                </div>
 
-            <div className="pt-4 md:pt-8 flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={() => setIsOrderFormOpen(true)}
-                className="bg-[#1a2b4b] text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-bold shadow-2xl hover:bg-red-600 transition-all duration-500 uppercase text-xs tracking-widest"
-              >
-                Porosit Tani
-              </button>
-              <Link 
-                to="/products"
-                className="border-2 border-[#1a2b4b] text-[#1a2b4b] px-8 md:px-12 py-4 md:py-5 rounded-full font-bold hover:bg-[#1a2b4b] hover:text-white transition-all duration-500 uppercase text-xs tracking-widest text-center"
-              >
-                Shiko të tjera
-              </Link>
-            </div>
+                <div className="pt-4 md:pt-8 flex flex-col sm:flex-row gap-4">
+                  <button 
+                    onClick={() => setIsOrderFormOpen(true)}
+                    className="bg-[#1a2b4b] text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-bold shadow-2xl hover:bg-red-600 transition-all duration-500 uppercase text-xs tracking-widest"
+                  >
+                    Porosit Tani
+                  </button>
+                  <Link 
+                    to="/products"
+                    className="border-2 border-[#1a2b4b] text-[#1a2b4b] px-8 md:px-12 py-4 md:py-5 rounded-full font-bold hover:bg-[#1a2b4b] hover:text-white transition-all duration-500 uppercase text-xs tracking-widest text-center"
+                  >
+                    Shiko të tjera
+                  </Link>
+                </div>
+              </>
+            )}
+
+            {['shrimp-crackers', 'shin-toomba', 'shin-ramyun'].includes(product.id) && (
+              <div className="pt-4 md:pt-8 flex flex-col sm:flex-row gap-4">
+                <button 
+                  onClick={() => setIsOrderFormOpen(true)}
+                  className="bg-[#1a2b4b] text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-bold shadow-2xl hover:bg-red-600 transition-all duration-500 uppercase text-xs tracking-widest"
+                >
+                  Porosit Tani
+                </button>
+                <Link 
+                  to="/products"
+                  className="border-2 border-[#1a2b4b] text-[#1a2b4b] px-8 md:px-12 py-4 md:py-5 rounded-full font-bold hover:bg-[#1a2b4b] hover:text-white transition-all duration-500 uppercase text-xs tracking-widest text-center"
+                >
+                  Shiko të tjera
+                </Link>
+              </div>
+            )}
           </div>
         </motion.div>
       </div>

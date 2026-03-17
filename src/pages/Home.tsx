@@ -40,17 +40,36 @@ function HomeProductCard({ product, index }: { product: any, index: number; key?
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.15 }}
       className="flex items-center gap-6 md:gap-10 py-12 md:py-16 border-b border-[#1a2b4b]/5 last:border-0"
     >
-      {/* Product Image - Portrait Aspect Ratio */}
+      {/* Product Image - Portrait Aspect Ratio with Korean-inspired border */}
       <div className="w-2/5 lg:w-1/2 flex justify-center">
-        <div className="relative w-full aspect-[4/5] bg-white/40 backdrop-blur-md flex items-center justify-center p-3 md:p-6 lg:p-8 shadow-[0_30px_60px_-15px_rgba(26,43,75,0.1)] rounded-sm overflow-hidden border border-white/20">
-          <div className="absolute top-2 right-2 text-[#1a2b4b]/5 font-serif text-2xl md:text-4xl lg:text-6xl pointer-events-none">
-            辛
+        <div className="relative w-full aspect-[4/5] flex items-center justify-center p-1">
+          {/* Korean-inspired border frame */}
+          <div className="absolute inset-0 bg-gradient-to-br from-red-50 via-white to-red-50 rounded-lg opacity-60"></div>
+          <div className="absolute inset-0 border-2 border-red-600/20 rounded-lg"></div>
+          <div className="absolute inset-0 border border-red-600/10 rounded-md m-1"></div>
+          
+          {/* Decorative corner elements - Korean pattern inspired */}
+          <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-red-600 rounded-tl-lg"></div>
+          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-red-600 rounded-tr-lg"></div>
+          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-red-600 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-red-600 rounded-br-lg"></div>
+          
+          {/* Traditional Korean knot pattern accents */}
+          <div className="absolute top-2 left-2 w-2 h-2 bg-red-600 rounded-full opacity-80"></div>
+          <div className="absolute top-2 right-2 w-2 h-2 bg-red-600 rounded-full opacity-80"></div>
+          <div className="absolute bottom-2 left-2 w-2 h-2 bg-red-600 rounded-full opacity-80"></div>
+          <div className="absolute bottom-2 right-2 w-2 h-2 bg-red-600 rounded-full opacity-80"></div>
+          
+          <div className="relative w-full h-full flex items-center justify-center p-2">
+            <div className="absolute top-2 right-2 text-[#1a2b4b]/5 font-serif text-xl md:text-3xl lg:text-4xl pointer-events-none">
+              辛
+            </div>
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className="h-full object-contain rounded shadow-[0_20px_40px_rgba(26,43,75,0.15)] border border-red-600/10 bg-white/50" 
+            />
           </div>
-          <img 
-            src={product.image} 
-            alt={product.name} 
-            className="h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]" 
-          />
         </div>
       </div>
 
@@ -208,9 +227,9 @@ export default function Home() {
             </div>
             <div className="space-y-0">
                 {[
-                  { name: "Shin Ramyun Original", detail: "Supa ikonike pikante", image: "/shin_ramuyn/resized_shin_ramuyn.png", id: "shin-ramyun" },
-                  { name: "Shin Ramyun Toomba", detail: "Kremoze & Stir-fry", image: "/Shin_Ramun_tomba/resized_Shin_Ramun_tomba.png", id: "shin-toomba" },
-                  { name: "Shrimp Crackers", detail: "Shije Oqeani & Pikante", image: "/Sgin_Crackers/resized_Sgin_Crackers.png", id: "shrimp-crackers" }
+                  { name: "Shin Ramyun Original", detail: "Supa ikonike pikante", image: "/shin_ramuyn/shin_ramuyn(2).jpeg", id: "shin-ramyun" },
+                  { name: "Shin Ramyun Toomba", detail: "Kremoze & Stir-fry", image: "/Shin_Ramun_tomba/Shin_Ramun_tomba.jpeg", id: "shin-toomba" },
+                  { name: "Shrimp Crackers", detail: "Shije Oqeani & Pikante", image: "/Sgin_Crackers/Sgin_Crackers.jpeg", id: "shrimp-crackers" }
                 ].map((item, i) => (
                     <HomeProductCard product={item} index={i} key={item.id} />
                 ))}

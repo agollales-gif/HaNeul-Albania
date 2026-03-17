@@ -2,7 +2,7 @@ interface TechSpecs {
   [key: string]: string;
 }
 
-export default function ProductSpecs({ tech }: { tech: TechSpecs }) {
+export default function ProductSpecs({ tech, onOrderClick }: { tech: TechSpecs; onOrderClick?: () => void }) {
   return (
     <div className="mt-16 relative">
       {/* Background decoration */}
@@ -28,55 +28,20 @@ export default function ProductSpecs({ tech }: { tech: TechSpecs }) {
           </div>
         </div>
 
-        {/* Main Table Container */}
+        {/* POROSIT TANI Button */}
         <div className="relative group">
           {/* Glow effect on hover */}
-          <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 to-[#1a2b4b]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-[#1a2b4b]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
           
-          <div className="relative bg-white/80 backdrop-blur-xl border border-[#1a2b4b]/10 rounded-lg overflow-hidden shadow-[0_50px_100px_-25px_rgba(26,43,75,0.15)] group-hover:shadow-[0_60px_120px_-30px_rgba(26,43,75,0.2)] transition-all duration-700">
-            {/* Top gradient bar */}
-            <div className="h-1 bg-gradient-to-r from-red-600 via-[#1a2b4b] to-red-600 opacity-20" />
+          <button onClick={onOrderClick} className="relative w-full bg-[#233554] text-white px-12 py-6 rounded-full font-bold shadow-2xl hover:bg-[#1a2b4b] transition-all duration-500 uppercase text-sm tracking-widest transform hover:scale-105 group-hover:shadow-[0_25px_50px_-12px_rgba(35,53,84,0.5)]">
+            {/* Button inner decoration */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
-            <div className="grid grid-cols-2 divide-x divide-[#1a2b4b]/5">
-              {Object.entries(tech).map(([key, value], index) => (
-                <div 
-                  key={key} 
-                  className={`relative group/item hover:bg-gradient-to-br hover:from-[#1a2b4b]/5 hover:to-red-600/5 transition-all duration-500 ${
-                    index < Object.entries(tech).length - 2 ? 'border-b border-[#1a2b4b]/5' : ''
-                  } ${index === Object.entries(tech).length - 2 ? 'border-b border-[#1a2b4b]/5' : ''}`}
-                >
-                  {/* Hover indicator */}
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-600 to-[#1a2b4b] opacity-0 group-hover/item:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="p-8 flex flex-col justify-between min-h-[100px]">
-                    <div className="mb-4">
-                      <span className="font-sans text-[8px] uppercase tracking-[0.5em] opacity-40 group-hover/item:opacity-70 transition-opacity duration-500 text-[#1a2b4b] block mb-2">
-                        {key}
-                      </span>
-                      {/* Decorative line */}
-                      <div className="h-px bg-gradient-to-r from-transparent via-[#1a2b4b]/20 to-transparent w-full" />
-                    </div>
-                    
-                    <div className="flex items-start justify-between">
-                      <span className="font-mono text-base font-medium tracking-tight text-[#1a2b4b] leading-tight">
-                        {value}
-                      </span>
-                      
-                      {/* Icon indicator */}
-                      <div className="opacity-0 group-hover/item:opacity-100 transition-all duration-500 transform translate-x-2 group-hover/item:translate-x-0">
-                        <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <span className="relative z-10">POROSIT TANI</span>
             
-            {/* Bottom gradient bar */}
-            <div className="h-1 bg-gradient-to-r from-red-600 via-[#1a2b4b] to-red-600 opacity-10" />
-          </div>
+            {/* Button shine effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-full" />
+          </button>
         </div>
 
         {/* Footer note */}

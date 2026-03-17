@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import React, { useRef, useEffect, useState } from 'react';
 import ProductSpecs from '../components/ProductSpecs';
 import ProductSlideshow from '../components/ProductSlideshow';
+import OrderForm from '../components/OrderForm';
 
 const products = [
   {
@@ -10,7 +11,7 @@ const products = [
     subtitle: 'Pikante Gourmet',
     desc: 'Supa ikonike pikante me petë që nisi gjithçka. Një lëng i pasur që mishëron mjeshtërinë e shijes koreane.',
     cert: 'Vegan / Halal',
-    images: ['/shin_ramuyn/shin_ramuyn.png', '/shin_ramuyn/shin_ramuyn(2).jpeg', '/shin_ramuyn/shin_ramuyn(3).jpeg'],
+    images: ['/shin_ramuyn/shin_ramuyn(2).jpeg', '/shin_ramuyn/shin_ramuyn(3).jpeg'],
     tech: {
       'Category': 'Packet Noodles',
       'Type': 'Soup',
@@ -26,7 +27,7 @@ const products = [
     subtitle: 'Premium Pikante & Kremoze',
     desc: 'Fuzion i guximshëm i kremit dhe djegësisë. Një eksperiencë stir-fry për ata që kërkojnë teksturë kadifeje.',
     cert: 'Vegan / Halal',
-    images: ['/Shin_Ramun_tomba/Shin_Ramun_tomba.png', '/Shin_Ramun_tomba/Shin_Ramun_tomba.jpeg', '/Shin_Ramun_tomba/Shin_Ramun_tomba(2).jpeg'],
+    images: ['/Shin_Ramun_tomba/Shin_Ramun_tomba.jpeg', '/Shin_Ramun_tomba/Shin_Ramun_tomba(2).jpeg'],
     tech: {
       'Category': 'Packet Noodles',
       'Type': 'Stir Fry',
@@ -42,7 +43,7 @@ const products = [
     subtitle: 'Shije Oqeani dhe Pikante',
     desc: 'Snack-u legjendar me karkaleca të vërtetë. Krokante, e lehtë dhe e krijuar për të qenë e parezistueshme.',
     cert: 'Premium Snack',
-    images: ['/Sgin_Crackers/Sgin_Crackers.png', '/Sgin_Crackers/Sgin_Crackers(2).jpeg', '/Sgin_Crackers/Sgin_Crackers(3).png'],
+    images: ['/Sgin_Crackers/Sgin_Crackers.jpeg', '/Sgin_Crackers/resized_Sgin_Crackers(3).png'],
     tech: {
       'Category': 'Snack',
       'Type': 'Crackers',
@@ -54,7 +55,7 @@ const products = [
   }
 ];
 
-function ProductCard({ product, index, key }: { product: typeof products[0], index: number, key?: string }) {
+function ProductCard({ product, index, key, onOrderClick }: { product: typeof products[0], index: number, key?: string, onOrderClick: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -104,7 +105,7 @@ function ProductCard({ product, index, key }: { product: typeof products[0], ind
           </p>
 
           <div className="pt-4">
-            <ProductSpecs tech={product.tech} />
+            <ProductSpecs tech={product.tech} onOrderClick={onOrderClick} />
           </div>
         </div>
       </div>
@@ -113,6 +114,14 @@ function ProductCard({ product, index, key }: { product: typeof products[0], ind
 }
 
 export default function Products() {
+  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+
+  const handleOrderClick = (product: typeof products[0]) => {
+    setSelectedProduct(product);
+    setIsOrderFormOpen(true);
+  };
+
   return (
     <div className="relative bg-[#fdfaf5] text-[#1a2b4b] min-h-screen">
       
@@ -175,10 +184,19 @@ export default function Products() {
       <div className="pt-20 md:pt-40 pb-20 md:pb-40">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           {products.map((product, idx) => (
-            <ProductCard product={product} index={idx} key={product.id} />
+            <ProductCard product={product} index={idx} key={product.id} onOrderClick={() => handleOrderClick(product)} />
           ))}
         </div>
       </div>
+    {/* Order Form Modal */}
+      {selectedProduct && (
+        <OrderForm 
+          isOpen={isOrderFormOpen}
+          onClose={() => setIsOrderFormOpen(false)}
+          productName={selectedProduct.name}
+          productId={selectedProduct.id}
+        />
+      )}
     </div>
   );
 }

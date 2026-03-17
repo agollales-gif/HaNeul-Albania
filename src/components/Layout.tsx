@@ -188,7 +188,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </AnimatePresence>
 
       {/* FOOTER */}
-      <footer className="bg-white text-[#1a2b4b] py-16 md:py-40 border-t border-[#1a2b4b]/5 mt-auto">
+      <footer className="bg-white text-[#1a2b4b] py-8 md:py-12 border-t border-[#1a2b4b]/5 mt-auto">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-12">
           <div className="md:w-1/3">
             <div className="flex items-center gap-3 md:gap-4 mb-4">
@@ -230,7 +230,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 mt-12 md:mt-16 pt-6 md:pt-8 border-t border-navy/5">
           <div className="text-center">
             <p className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-[#1a2b4b] opacity-30">
-              © 2026 HaNeul. Të gjitha të drejtat e rezervuara.
+              © 2026 HaNeul Powered by Black Bear Solutions
             </p>
           </div>
         </div>
