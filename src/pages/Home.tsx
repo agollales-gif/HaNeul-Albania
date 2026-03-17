@@ -208,9 +208,9 @@ export default function Home() {
             </div>
             <div className="space-y-0">
                 {[
-                  { name: "Shin Ramyun Original", detail: "Supa ikonike pikante", image: "/shin_ramuyn/shin_ramuyn.png", id: "shin-ramyun" },
-                  { name: "Shin Ramyun Toomba", detail: "Kremoze & Stir-fry", image: "/Shin_Ramun_tomba/Shin_Ramun_tomba.png", id: "shin-toomba" },
-                  { name: "Shrimp Crackers", detail: "Shije Oqeani & Pikante", image: "/Sgin_Crackers/Sgin_Crackers.png", id: "shrimp-crackers" }
+                  { name: "Shin Ramyun Original", detail: "Supa ikonike pikante", image: "/shin_ramuyn/resized_shin_ramuyn.png", id: "shin-ramyun" },
+                  { name: "Shin Ramyun Toomba", detail: "Kremoze & Stir-fry", image: "/Shin_Ramun_tomba/resized_Shin_Ramun_tomba.png", id: "shin-toomba" },
+                  { name: "Shrimp Crackers", detail: "Shije Oqeani & Pikante", image: "/Sgin_Crackers/resized_Sgin_Crackers.png", id: "shrimp-crackers" }
                 ].map((item, i) => (
                     <HomeProductCard product={item} index={i} key={item.id} />
                 ))}

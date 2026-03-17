@@ -61,7 +61,7 @@ export default function Contact() {
             <h4 className="text-red-600 font-sans font-bold tracking-[0.4em] uppercase text-xs mb-6">
               HaNeul Heritage
             </h4>
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-9xl tracking-tighter leading-[0.85] mb-8 md:mb-12">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter text-[#1a2b4b] mb-8 md:mb-12">
               NA <br/>
               <span className="text-red-600 italic font-extralight ml-[-5px]">GJENI</span>
             </h1>
