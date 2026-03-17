@@ -161,12 +161,6 @@ export default function Layout({ children }: { children: ReactNode }) {
                 >
                   Instagram
                 </a>
-                <a 
-                  href="#" 
-                  className="text-[10px] tracking-[0.3em] uppercase text-navy opacity-50 hover:opacity-100 hover:text-crimson transition-all"
-                >
-                  Facebook
-                </a>
               </div>
             </div>
           </motion.div>
@@ -210,20 +204,17 @@ export default function Layout({ children }: { children: ReactNode }) {
           </div>
 
           <div className="md:w-1/3 flex gap-4 md:gap-8 md:justify-end w-full">
-            {['Instagram', 'Facebook'].map((social) => (
-              <a
-                key={social}
-                href={social === 'Instagram' ? 'https://www.instagram.com/haneulshpk' : '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MagneticButton>
-                  <span className="font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#1a2b4b] opacity-50 hover:opacity-100 hover:text-red-600 transition-all">
-                    {social}
-                  </span>
-                </MagneticButton>
-              </a>
-            ))}
+            <a
+              href="https://www.instagram.com/haneulshpk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MagneticButton>
+                <span className="font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#1a2b4b] opacity-50 hover:opacity-100 hover:text-red-600 transition-all">
+                  Instagram
+                </span>
+              </MagneticButton>
+            </a>
           </div>
         </div>
 

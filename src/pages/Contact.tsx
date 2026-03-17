@@ -67,14 +67,6 @@ export default function Contact() {
             </h1>
             
             <div className="space-y-12 md:space-y-16 mt-12 md:mt-20">
-              <div className="group">
-                <h4 className="font-sans text-[10px] uppercase tracking-[0.3em] opacity-40 mb-4">Sedi Qendrore</h4>
-                <p className="font-serif text-xl md:text-3xl lg:text-4xl leading-tight border-b border-[#1a2b4b]/10 pb-2 group-hover:border-red-600 transition-all duration-500">
-                  Rr. Ibrahim Rugova, Sky Tower, <br />
-                  Kati 14, Tiranë, Shqipëri
-                </p>
-              </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                   <h4 className="font-sans text-[10px] uppercase tracking-[0.3em] opacity-40 mb-4">Inquiry Center</h4>
@@ -88,68 +80,77 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE: PREMIUM LOCATION CARD (TEJDUKSHME DHE PROFESIONALE) */}
+          {/* RIGHT SIDE: KOREAN-INSPIRED LOCATION CARD */}
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-[400px] md:h-[650px] bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(26,43,75,0.15)] rounded-sm"
+            className="relative h-[400px] md:h-[650px] bg-gradient-to-br from-red-50 via-white to-red-50 overflow-hidden shadow-[0_30px_60px_-15px_rgba(26,43,75,0.15)] rounded-lg"
           >
-            {/* Rrjeta Abstrakte (Grid Decor) */}
-            <div className="absolute inset-0 opacity-[0.03]">
-                <svg width="100%" height="100%" className="absolute inset-0">
-                    <pattern id="grid_contact" width="30" height="30" patternUnits="userSpaceOnUse">
-                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="white" strokeWidth="0.5" />
-                    </pattern>
-                    <rect width="100%" height="100%" fill="url(#grid_contact)" />
-                </svg>
+            {/* Korean-inspired border frame */}
+            <div className="absolute inset-0 border-2 border-red-600/20 rounded-lg"></div>
+            <div className="absolute inset-0 border border-red-600/10 rounded-md m-1"></div>
+            
+            {/* Decorative corner elements - Korean pattern inspired */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-red-600 rounded-tl-lg"></div>
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-600 rounded-tr-lg"></div>
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-red-600 rounded-bl-lg"></div>
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-600 rounded-br-lg"></div>
+            
+            {/* Traditional Korean knot pattern accents */}
+            <div className="absolute top-2 left-2 w-3 h-3 bg-red-600 rounded-full opacity-80"></div>
+            <div className="absolute top-2 right-2 w-3 h-3 bg-red-600 rounded-full opacity-80"></div>
+            <div className="absolute bottom-2 left-2 w-3 h-3 bg-red-600 rounded-full opacity-80"></div>
+            <div className="absolute bottom-2 right-2 w-3 h-3 bg-red-600 rounded-full opacity-80"></div>
+
+            {/* Google Maps iframe with Korean frame */}
+            <div className="absolute inset-4 p-1 bg-white/50 rounded border border-red-600/10">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.123456789!2d19.8187!3d41.3275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE5JzQzLjAiTiAxOcKwNDknMTEuMCJF!5e0!3m2!1sen!2s!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full rounded"
+              />
             </div>
 
-            {/* Simuluar Map Marker me "Aura" efekt */}
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                    <motion.div 
-                        animate={{ scale: [1, 2, 1], opacity: [0.2, 0.1, 0.2] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute -inset-10 bg-red-600 rounded-full blur-xl"
-                    />
-                    <motion.div 
-                        className="relative z-10 w-3 h-3 bg-red-600 rounded-full border-2 border-white/50"
-                        animate={{ y: [0, -8, 0] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                    <div className="absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                        <span className="bg-[#1a2b4b]/90 backdrop-blur-md text-white px-3 md:px-5 py-2 md:py-2.5 font-sans text-[8px] md:text-[9px] font-bold uppercase tracking-[0.3em] shadow-2xl">
-                            HAneul CENTRAL — Tirana
-                        </span>
-                    </div>
-                </div>
+            {/* Korean-style location label */}
+            <div className="absolute top-6 right-6 bg-red-600 text-white px-4 py-2 rounded-full shadow-lg">
+              <div className="flex items-center gap-2">
+                <span className="font-serif text-lg">하늘</span>
+                <div className="w-px h-4 bg-white/30"></div>
+                <span className="font-sans text-xs uppercase tracking-[0.2em] font-bold">Tirana</span>
+              </div>
             </div>
 
-            {/* Technical Coordinates (HUD Style) */}
-            <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 bg-gradient-to-t from-[#1a2b4b]/80 via-[#1a2b4b]/30 to-transparent">
-                <div className="flex justify-between items-end text-white/60 font-sans text-[8px] md:text-[9px] tracking-[0.3em]">
-                    <div>
-                        <p>LATITUDE: 41.3275° N</p>
-                        <p>LONGITUDE: 19.8187° E</p>
-                    </div>
-                    <div className="text-right">
-                        <p className="text-red-600 font-bold">STATUS: ACTIVE</p>
-                        <p>MON-FRI: 09:00 - 18:00</p>
-                    </div>
-                </div>
-            </div>
-
-            {/* Butoni i Hartave me stil Glassmorphism */}
+            {/* Korean-inspired launch button */}
             <motion.a 
-                href="https://maps.google.com" 
+                href="https://maps.app.goo.gl/gWQM5q6JCZXBCijk6" 
                 target="_blank"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="absolute top-6 md:top-10 left-6 md:left-10 bg-white/5 backdrop-blur-md border border-white/20 px-4 md:px-6 py-2.5 md:py-3.5 text-white font-sans text-[9px] md:text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-[#1a2b4b] transition-all duration-700"
+                className="absolute bottom-6 left-6 bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 font-sans text-xs uppercase tracking-[0.3em] font-bold border border-red-700"
             >
-                Launch in Maps
+                <span className="flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  Harta e Plotë
+                </span>
             </motion.a>
+
+            {/* Traditional Korean pattern overlay */}
+            <div className="absolute inset-0 pointer-events-none opacity-5">
+              <div className="absolute top-1/4 left-1/4 w-32 h-32 border-4 border-red-600 rounded-full"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-24 h-24 border-4 border-red-600 rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-600 font-serif text-6xl opacity-20">
+                辛
+              </div>
+            </div>
           </motion.div>
 
         </div>
