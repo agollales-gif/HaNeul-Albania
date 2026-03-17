@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "auto-commit": "node auto-commit.js",
+    "commit-push": "git add . && git commit -m \"Auto-commit: $(date +'%Y-%m-%d %H:%M:%S')\" && git push origin main"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
