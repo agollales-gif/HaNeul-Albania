@@ -31,18 +31,15 @@ const ProductSlideshow: React.FC<ProductSlideshowProps> = ({ images, productName
 
   return (
     <div className="relative w-full h-full flex items-center justify-center p-1">
-      {/* Korean-inspired border frame */}
       <div className="absolute inset-0 bg-gradient-to-br from-red-50 via-white to-red-50 rounded-lg opacity-60"></div>
       <div className="absolute inset-0 border-2 border-red-600/20 rounded-lg"></div>
       <div className="absolute inset-0 border border-red-600/10 rounded-md m-1"></div>
       
-      {/* Decorative corner elements - Korean pattern inspired */}
       <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-red-600 rounded-tl-lg"></div>
       <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-600 rounded-tr-lg"></div>
       <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-red-600 rounded-bl-lg"></div>
       <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-600 rounded-br-lg"></div>
       
-      {/* Traditional Korean knot pattern accents */}
       <div className="absolute top-2 left-2 w-3 h-3 bg-red-600 rounded-full opacity-80"></div>
       <div className="absolute top-2 right-2 w-3 h-3 bg-red-600 rounded-full opacity-80"></div>
       <div className="absolute bottom-2 left-2 w-3 h-3 bg-red-600 rounded-full opacity-80"></div>
@@ -63,7 +60,6 @@ const ProductSlideshow: React.FC<ProductSlideshowProps> = ({ images, productName
         </AnimatePresence>
       </div>
 
-      {/* Navigation Buttons */}
       <button
         onClick={goToPrevious}
         className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-red-600/90 hover:bg-red-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20 border border-red-700"
@@ -84,7 +80,6 @@ const ProductSlideshow: React.FC<ProductSlideshowProps> = ({ images, productName
         </svg>
       </button>
 
-      {/* Dots Indicator */}
       <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 bg-white/80 px-3 py-2 rounded-full shadow-md z-20">
         {images.map((_, index) => (
           <button

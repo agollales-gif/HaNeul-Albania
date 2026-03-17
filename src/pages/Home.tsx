@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-// --- KOMPONENTI COUNTER ---
 function Counter({ from, to }) {
   const [count, setCount] = useState(from);
   useEffect(() => {
@@ -20,7 +19,6 @@ function Counter({ from, to }) {
   return <span>{count}</span>;
 }
 
-// --- HOMEPAGE PRODUCT CARD ---
 function HomeProductCard({ product, index }: { product: any, index: number; key?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
@@ -40,21 +38,17 @@ function HomeProductCard({ product, index }: { product: any, index: number; key?
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.15 }}
       className="flex items-center gap-6 md:gap-10 py-12 md:py-16 border-b border-[#1a2b4b]/5 last:border-0"
     >
-      {/* Product Image - Portrait Aspect Ratio with Korean-inspired border */}
       <div className="w-2/5 lg:w-1/2 flex justify-center">
         <div className="relative w-full aspect-[4/5] flex items-center justify-center p-1">
-          {/* Korean-inspired border frame */}
           <div className="absolute inset-0 bg-gradient-to-br from-red-50 via-white to-red-50 rounded-lg opacity-60"></div>
           <div className="absolute inset-0 border-2 border-red-600/20 rounded-lg"></div>
           <div className="absolute inset-0 border border-red-600/10 rounded-md m-1"></div>
           
-          {/* Decorative corner elements - Korean pattern inspired */}
           <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-red-600 rounded-tl-lg"></div>
           <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-red-600 rounded-tr-lg"></div>
           <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-red-600 rounded-bl-lg"></div>
           <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-red-600 rounded-br-lg"></div>
           
-          {/* Traditional Korean knot pattern accents */}
           <div className="absolute top-2 left-2 w-2 h-2 bg-red-600 rounded-full opacity-80"></div>
           <div className="absolute top-2 right-2 w-2 h-2 bg-red-600 rounded-full opacity-80"></div>
           <div className="absolute bottom-2 left-2 w-2 h-2 bg-red-600 rounded-full opacity-80"></div>
@@ -73,7 +67,6 @@ function HomeProductCard({ product, index }: { product: any, index: number; key?
         </div>
       </div>
 
-      {/* Product Content - Vertically Centered */}
       <div className="w-3/5 lg:w-1/2 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -107,7 +100,6 @@ export default function Home() {
   const yHero = useTransform(scrollYProgress, [0, 0.2], ['0%', '20%']);
   const opacityHero = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
-  // Rrjeti Global i bazuar ne faqen 4 te PDF-se [cite: 96, 97, 104, 105, 107, 108, 109]
   const pastMarkets = [
     { id: "01", title: "America", desc: "Prani e fuqishme në tregun e Amerikës së Veriut." },
     { id: "02", title: "Europe", desc: "Zgjerimi në metropolet kryesore evropiane." },
@@ -120,7 +112,6 @@ export default function Home() {
   return (
     <div className="relative bg-[#fdfaf5] text-[#1a2b4b] selection:bg-red-600 selection:text-white">
       
-      {/* 0. BACKGROUND VIDEO */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-[0.08]">
           <source src="/hero_video.mp4" type="video/mp4" />
@@ -128,7 +119,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#fdfaf5]/40 backdrop-blur-[1px]" />
       </div>
 
-      {/* 1. HERO SECTION */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden z-10">
         <motion.div style={{ y: yHero, opacity: opacityHero }} className="px-6 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -154,7 +144,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 2. GLOBAL NETWORK (ALBANIA FOCUS) */}
       <section className="relative py-48 bg-[#1a2b4b] text-white z-10 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/10 blur-[150px] rounded-full" />
         
@@ -214,7 +203,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. PRODUCT PREVIEW - Side-by-side layout with scroll animations */}
       <section className="py-24 md:py-48 bg-transparent z-10 relative">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
             <div className="flex flex-col items-center text-center mb-16 md:mb-24 gap-8">
@@ -237,7 +225,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. STATS SECTION - Bazuar ne faqen 3 dhe 5 [cite: 76, 125, 132, 134] */}
       <section className="py-48 bg-white/80 backdrop-blur-md z-10 relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
@@ -259,7 +246,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. CTA SECTION */}
       <section className="py-60 bg-[#1a2b4b] text-white text-center relative overflow-hidden z-10">
         <div className="max-w-4xl mx-auto px-6 relative z-10">
             <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-9xl tracking-tighter mb-8 sm:mb-12">Gati për HaNeul?</h2>
